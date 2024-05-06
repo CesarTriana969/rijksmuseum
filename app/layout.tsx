@@ -1,5 +1,10 @@
+import { Metadata } from 'next';
 import { montserrat } from './ui/fonts';
 import './ui/global.css';
+
+export const metadata: Metadata = {
+  title: 'Artwork system by Rijksmuseum',
+};
 
 export default function RootLayout({
   children,

@@ -1,6 +1,11 @@
+import { Metadata } from 'next';
 import Header from "../ui/artworks/header";
 import SideNav from "../ui/artworks/sidenav";
 import { Toaster } from "@/components/ui/toaster"
+
+export const metadata: Metadata = {
+  title: 'Artworks by Rijksmuseum',
+};
 
 export default function layout(
   { children } : {children:React.ReactNode}

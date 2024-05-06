@@ -9,7 +9,7 @@ import { fetchArtworksPages } from '@/app/lib/data';
 
 
 
-export default async function InvoicesPage({
+export default async function ArtworksPage({
   searchParams
 }: {
   searchParams ?: {
@@ -30,7 +30,7 @@ export default async function InvoicesPage({
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8 ">
-        <Search placeholder="Search invoices..." />
+        <Search placeholder="Search Artworks..." />
 
         <div className='w-80'>
           <Select placeholder="Select Authors..."  />

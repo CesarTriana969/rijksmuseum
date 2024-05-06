@@ -1,5 +1,10 @@
+import { Metadata } from 'next';
 import LoginForm from '@/app/ui/login-form';
 import { lusitana } from '@/app/ui/fonts';
+
+export const metadata: Metadata = {
+  title: 'Login by Rijksmuseum',
+};
  
 export default function LoginPage() {
   return (
