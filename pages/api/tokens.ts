@@ -18,14 +18,7 @@ export default async function handlePostRequest(
       return res.status(400).json({ error: 'Content-Type debe ser application/json' });
     }
 
-    const { body } = req.body as { body: string };
-    let requestBody: TokenRequestBody;
-
-    try {
-      requestBody = JSON.parse(body);
-    } catch (error) {
-      return res.status(400).json({ error: 'El cuerpo de la solicitud no es un JSON válido.' });
-    }
+    const requestBody: TokenRequestBody = req.body;
 
     if (!requestBody.unq_id) {
       return res.status(400).json({ error: 'Campo unq_id requerido en el cuerpo de la solicitud.' });
