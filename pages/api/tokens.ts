@@ -10,18 +10,18 @@ export default async function handlePostRequest(
   res: NextApiResponse
 ) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
     if (req.headers['content-type'] !== 'application/json') {
-      return res.status(400).json({ error: 'Content-Type debe ser application/json' });
+      return res.status(400).json({ error: 'Content-Type must be application/json' });
     }
 
     const requestBody: TokenRequestBody = req.body;
 
     if (!requestBody.unq_id) {
-      return res.status(400).json({ error: 'Campo unq_id requerido en el cuerpo de la solicitud.' });
+      return res.status(400).json({ error: 'Field unq_id is required in the request body.' });
     }
 
     await sql`
@@ -29,9 +29,9 @@ export default async function handlePostRequest(
       VALUES (${requestBody.unq_id})
     `;
 
-    return res.status(200).json({ message: 'Token almacenado exitosamente.' });
+    return res.status(200).json({ message: 'Token stored successfully.' });
   } catch (error) {
-    console.error('Error al manejar la solicitud POST:', error);
-    return res.status(500).json({ error: 'Error interno del servidor.' });
+    console.error('Error handling POST request:', error);
+    return res.status(500).json({ error: 'Internal server error.' });
   }
 }
